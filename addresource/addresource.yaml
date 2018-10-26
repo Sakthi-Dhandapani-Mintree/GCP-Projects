@@ -1,0 +1,21 @@
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT addresource:app
+
+service: addresource
+
+network:
+  instance_tag: "gcppractice-addresource"
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 3
+  cool_down_period_sec: 120
+  cpu_utilization:
+    target_utilization: 0.75
+
+env_variables:
+  DB_HOST: "35.200.204.195"
+  USER: "root"
+  PASSWORD: "root123"
+  DATABASE: "RTM"
