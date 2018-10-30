@@ -2,7 +2,7 @@ runtime: java
 env: flex 
 api_version: 1
 threadsafe: true
-service: backend
+service: backendcloudendpoint
 handlers:
 - url: /.*
   script: this field is required, but ignored
