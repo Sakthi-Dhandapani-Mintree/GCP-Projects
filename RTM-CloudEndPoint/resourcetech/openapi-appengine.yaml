@@ -1,0 +1,27 @@
+swagger: "2.0"
+info:
+  title: "Airport Codes"
+  description: "Get the name of an airport from its three-letter IATA code."
+  version: "1.0.0"
+# This field will be replaced by the deploy_api.sh script.
+host: "YOUR-PROJECT-ID.appspot.com"
+schemes:
+  - "https"
+paths:
+  "/getResource/{userId}":
+    get:
+      parameters:
+        - in: path
+          name: userId   # Note the name is the same as in the path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The user ID
+      responses:
+        200:
+          description: "Success."
+          schema:
+            type: string
+        400:
+          description: "Not Found."
