@@ -92,54 +92,12 @@
 	<build>
 		<finalName>resourcetechnologymapping</finalName>
 		<plugins>
-			<!-- .... other plugins ... -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<id>scp-to-remote</id>
-						<phase>package</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<scp trust="true"
-									localFile="${project.basedir}/target/resourcetechnologymapping.war"
-									remoteToFile="M1048135@35.200.222.182:/usr/local/tomcat9/webapps"
-									verbose="true" keyfile="${project.basedir}/myprivate.ppk"
-									passphrase="">
-								</scp>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-				<!-- libraries for scp impl -->
-				<dependencies>
-					<dependency>
-						<groupId>com.jcraft</groupId>
-						<artifactId>jsch</artifactId>
-						<version>0.1.53</version>
-					</dependency>
-					<dependency>
-						<groupId>ant</groupId>
-						<artifactId>ant-jsch</artifactId>
-						<version>1.6.5</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<!-- Tomcat server plugin to stop and start -->
+		<!-- Tomcat server plugin to stop and start -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat9-maven-plugin</artifactId>
 				<version>2.2</version>
-<!-- 				<configuration> -->
-<!-- 					<server>apache-tomcat-9</server> -->
-<!-- 					<url>http://localhost:8080/manager/text</url> -->
-<!-- 					<path>/${project.artifactId}</path> -->
-<!-- 				</configuration> -->
+
 			</plugin>
 		</plugins>
 	</build>
