@@ -1,4 +1,3 @@
 FROM openjdk:8-jre
-ADD target/resourcetechnologymapping-0.0.1-SNAPSHOT.war /workspace/gke-rtm-backend-cicd/resourcetechnologymapping/target/resourcetechnologymapping.war
-COPY stuff /stuff
-RUN cp -r /stuff/* / && rm -r /stuff
+ADD build/libs/resourcetechnologymapping-1.0.5-SNAPSHOT.war /resourcetechnologymapping-1.0.5-SNAPSHOT.war
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -war /resourcetechnologymapping-1.0.5-SNAPSHOT.war"]
