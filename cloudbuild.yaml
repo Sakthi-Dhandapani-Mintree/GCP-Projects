@@ -12,8 +12,3 @@ steps:
   dir: 'gke-rtm-backend-cicd/resourcetechnologymapping/'
 images:
 - 'gcr.io/$PROJECT_ID/quickstart-image'
-artifacts:
-  objects:
-    location: 'gs://mindtreegcp-gke/'
-    paths:
-    - "${_TARGET}"
