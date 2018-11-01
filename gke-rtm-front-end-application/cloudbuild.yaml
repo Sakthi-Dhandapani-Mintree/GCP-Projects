@@ -1,15 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hello-world:1.0.$BUILD_ID', '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/hello-world:1.0.$BUILD_ID']
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/sdp-demo-app:$SHORT_SHA', '.' ]
 - name: 'gcr.io/cloud-builders/kubectl'
-  args:
-  - set
-  - image
-  - deployment
-  - hello-world
-  - web=gcr.io/$PROJECT_ID/hello-world:1.0.$BUILD_ID
+  args: ['set', 'image', 'deployment/demo-app', 'demo-app=gcr.io/$PROJECT_ID/sdp-demo-app:$SHORT_SHA']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cloud-build-example'
+  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=demo-cluster'
+images:
+- 'gcr.io/$PROJECT_ID/sdp-demo-app'
