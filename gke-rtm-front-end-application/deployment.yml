@@ -10,7 +10,7 @@ spec:
         app=gke-rtm-front-end-application
     spec:
       containers:
-      - name: hello-app
-        image: gcr.io/$PROJECT_ID/hello-app:1.0
+      - name: hello-world
+        image: gcr.io/$PROJECT_ID/hello-world:1.0
         ports:
         - containerPort: 8080
