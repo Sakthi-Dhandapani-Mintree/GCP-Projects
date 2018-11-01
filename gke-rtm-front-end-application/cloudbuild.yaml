@@ -6,7 +6,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ["push", "gcr.io/$PROJECT_ID/frontend:$REVISION_ID"]
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/frontend', 'frontend=gcr.io/$PROJECT_ID/frontend:$REVISION_ID']
+  args: ['set', 'image', 'deployment/helloworld', 'frontend=gcr.io/$PROJECT_ID/frontend:$REVISION_ID']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=demo-cluster'
