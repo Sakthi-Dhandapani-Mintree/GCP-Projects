@@ -1,18 +1,16 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "gcr.io/$PROJECT_ID/frontend:$REVISION_ID", "."]
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hello-world:1.0.$BUILD_ID', '.']
+  timeout: 180s
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/$PROJECT_ID/frontend:$REVISION_ID"]
+  args: ['push', 'gcr.io/$PROJECT_ID/hello-world:1.0.$BUILD_ID']
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply','-f','gke-rtm-front-end-application/helloworld.yml']
+  args:
+  - set
+  - image
+  - deployment
+  - hello-world
+  - web=gcr.io/$PROJECT_ID/hello-world:1.0.$BUILD_ID
   env:
-    - CLOUDSDK_COMPUTE_ZONE=asia-south1-c
-    - CLOUDSDK_CONTAINER_CLUSTER=gke-rtm-cluster
-   # Images
-images:
-  - gcr.io/gke-mindtree-135/frontend:$REVISION_ID
-# Tags
-tags:
-  - master
-  - dev
-  - init
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=gke-rtm-cluster'
