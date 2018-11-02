@@ -10,7 +10,7 @@ steps:
     - CLOUDSDK_CONTAINER_CLUSTER=gke-rtm-cluster
    # Images
 images:
-  - gcr.io/$PROJECT_ID/frontend:$REVISION_ID
+  - gcr.io/gke-mindtree-135/frontend:$REVISION_ID
 # Tags
 tags:
   - master
