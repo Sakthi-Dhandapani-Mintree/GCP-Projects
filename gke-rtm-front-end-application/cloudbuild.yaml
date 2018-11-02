@@ -3,8 +3,18 @@ steps:
   args: ["build", "-t", "gcr.io/$PROJECT_ID/frontend:$REVISION_ID", "."]
 - name: 'gcr.io/cloud-builders/docker'
   args: ["push", "gcr.io/$PROJECT_ID/frontend:$REVISION_ID"]
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['run', 'image', 'helloworld', 'frontend=gcr.io/$PROJECT_ID/frontend:$REVISION_ID']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=demo-cluster'
+# Update Deployment
+- id: Updating Deployment
+  name: gcr.io/cloud-builders/kubectl
+    args: ['apply','-f','helloworld.yaml']
+    env:
+    - CLOUDSDK_COMPUTE_ZONE=asia-south1-c
+    - CLOUDSDK_CONTAINER_CLUSTER=clusterx
+   # Images
+images:
+  - gcr.io/$PROJECT_ID/frontend:$REVISION_ID
+# Tags
+tags:
+  - master
+  - dev
+  - init
