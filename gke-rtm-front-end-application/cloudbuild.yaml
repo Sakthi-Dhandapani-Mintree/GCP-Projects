@@ -4,7 +4,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ["push", "gcr.io/$PROJECT_ID/frontend:$REVISION_ID"]
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply','-f','helloworld.yml']
+  args: ['apply','-f','gke-rtm-front-end-application/helloworld.yml']
   env:
     - CLOUDSDK_COMPUTE_ZONE=asia-south1-c
     - CLOUDSDK_CONTAINER_CLUSTER=gke-rtm-cluster
