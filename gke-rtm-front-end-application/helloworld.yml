@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: dev
+  namespace: helloworld
   name: app
   labels:
     app: app
@@ -91,7 +91,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: dev
+  namespace: helloworld
   name: app-service
 spec:
   type: LoadBalancer
