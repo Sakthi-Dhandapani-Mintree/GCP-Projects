@@ -1,19 +1,103 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld
+  namespace: dev
+  name: app
+  labels:
+    app: app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: helloworld
+      app: app
   template:
     metadata:
       labels:
-        app=gke-rtm-front-end-application
+        app: app
     spec:
+      initContainers:
+      - name: init
+        image: INIT_IMAGE_NAME
+        imagePullPolicy: Always
+        command: ['sh', '-c', 'cp -r /app /srv; chown -R 82:82 /srv/app']
+        volumeMounts:
+        - name: code
+          mountPath: /srv
       containers:
-      - name: gke-rtm-front-end-application
-        image: gcr.io/$PROJECT_ID/hello-world:1.0
+      - name: nginx
+        image: NGINX_IMAGE_NAME
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        volumeMounts:
+        - name: code
+          mountPath: /srv
+        - name: php-socket
+          mountPath: /var/run
+        livenessProbe:
+          httpGet:
+            path: /health.html
+            port: 80
+            httpHeaders:
+            - name: X-Healthcheck
+              value: Checked
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /health.html
+            port: 80
+            httpHeaders:
+            - name: X-Healthcheck
+              value: Checked
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 15
+      - name: php
+        image: PHP_IMAGE_NAME
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: code
+          mountPath: /srv
+        - name: php-socket
+          mountPath: /var/run
+        livenessProbe:
+          httpGet:
+            path: /health.html
+            port: 80
+            httpHeaders:
+            - name: X-Healthcheck
+              value: Checked
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /health.html
+            port: 80
+            httpHeaders:
+            - name: X-Healthcheck
+              value: Checked
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 15
+      volumes:
+        - name: code
+          emptyDir: {}
+        - name: php-socket
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: dev
+  name: app-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: app
