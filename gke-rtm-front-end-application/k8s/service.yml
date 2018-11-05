@@ -9,5 +9,5 @@ spec:
   ports:
   - protocol: TCP
     nodePort: 32131
-    port: 50
-    targetPort: 5050
+    port: 80
+    targetPort: 8080
