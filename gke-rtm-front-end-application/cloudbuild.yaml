@@ -12,5 +12,5 @@ steps:
   - hello-world
   - web=gcr.io/$PROJECT_ID/hello-world:1.0.$BUILD_ID
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=gke-rtm-cluster'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cloud-build-example'
