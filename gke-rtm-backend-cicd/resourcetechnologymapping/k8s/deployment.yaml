@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: back-end
+  name: back-end
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: back-end
+    spec:
+      containers:
+      - name: web
+        image: gcr.io/gke-mindtree-135/back-end:v1.0.0
+        ports:
+        - containerPort: 8090
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8090
