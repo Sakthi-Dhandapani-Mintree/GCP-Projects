@@ -8,7 +8,17 @@ steps:
   - package
   dir: 'gke-rtm-backend-cicd/resourcetechnologymapping/'
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/quickstart-image', '.' ]
-  dir: 'gke-rtm-backend-cicd/resourcetechnologymapping/'
-images:
-- 'gcr.io/$PROJECT_ID/quickstart-image'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID', '.']
+  timeout: 180s
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment
+  - back-end
+  - web=gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cloud-build-example'
