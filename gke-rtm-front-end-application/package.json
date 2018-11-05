@@ -1,7 +1,7 @@
 {
   "name": "hello-world",
   "version": "1.0.0",
-  "description": "",
+  "description": "Resource Technology Mapping ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
