@@ -6,4 +6,4 @@ services:
       - .:/usr/src/site
       - /usr/src/site/node_modules
     ports:
-      - 8080:8080
+      - 5050:5050
