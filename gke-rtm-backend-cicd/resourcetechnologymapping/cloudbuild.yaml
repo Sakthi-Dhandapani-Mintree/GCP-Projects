@@ -5,8 +5,8 @@ steps:
 - name: "gcr.io/cloud-builders/mvn"
   args: ['package']
   dir: 'gke-rtm-backend-cicd/resourcetechnologymapping/'
-artifacts:
-  objects:
+  artifacts:
+   objects:
     location: ['gs://m1048135/']
     paths: ["${_TARGET}"]
 - name: gcr.io/cloud-builders/gsutil
