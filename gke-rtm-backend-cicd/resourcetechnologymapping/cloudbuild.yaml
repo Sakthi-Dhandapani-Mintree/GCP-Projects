@@ -5,11 +5,8 @@ steps:
 - name: "gcr.io/cloud-builders/mvn"
   args: ['package']
   dir: 'gke-rtm-backend-cicd/resourcetechnologymapping/' 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', 'gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID', '.']
-  dir: 'gke-rtm-backend-cicd/resourcetechnologymapping/'
 - name: gcr.io/cloud-builders/gsutil
-  args: ["cp", "gs://${PROJECT_ID}//back-end:1.0.$BUILD_ID'", "/workspace/kubeconfig"]
+  args: ["cp", "gs://${PROJECT_ID}/back-end", "/workspace/kubeconfig"] 
 - name: "gcr.io/google_containers/hyperkube:v1.5.3"
   env: ["KUBECONFIG=/workspace/kubeconfig"]
   entrypoint: "/hyperkube"
