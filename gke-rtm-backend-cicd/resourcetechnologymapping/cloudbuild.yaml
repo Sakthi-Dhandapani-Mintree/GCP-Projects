@@ -6,7 +6,7 @@ steps:
   args: ['package']
   dir: 'gke-rtm-backend-cicd/resourcetechnologymapping/' 
 - name: gcr.io/cloud-builders/gsutil
-  args: ["cp", "gs://${PROJECT_ID}/back-end", "/workspace/kubeconfig"] 
+  args: ["cp", "gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID", "/workspace/kubeconfig"] 
 - name: "gcr.io/google_containers/hyperkube:v1.5.3"
   env: ["KUBECONFIG=/workspace/kubeconfig"]
   entrypoint: "/hyperkube"
