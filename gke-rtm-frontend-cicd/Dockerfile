@@ -9,5 +9,5 @@
 #EXPOSE 8090
 
 #CMD ["npm", "start"]
-FROM httpd:2.4
-COPY . /var/www/html/
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
