@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: front-end
-  type: NodePort
+  type: LoadBalancer
   ports:
   - protocol: TCP
     nodePort: 32133
