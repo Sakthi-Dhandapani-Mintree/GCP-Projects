@@ -15,8 +15,8 @@ spec:
       - name: web
         image: gcr.io/gke-mindtree-135/back-end:v1.0.0
         ports:
-        - containerPort: 8090
+        - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /
-            port: 8090
+            port: 8080
