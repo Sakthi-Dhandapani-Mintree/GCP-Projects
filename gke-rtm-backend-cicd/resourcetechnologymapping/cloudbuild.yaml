@@ -18,7 +18,7 @@ steps:
   - set
   - image
   - deployment
-  - k8s/back-end
+  - back-end
   - web=gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
