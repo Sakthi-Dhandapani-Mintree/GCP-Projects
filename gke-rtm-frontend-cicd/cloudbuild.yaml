@@ -10,6 +10,8 @@ steps:
   args:
   - set
   - image
+  - deployment
+  - front-end
   - web=gcr.io/$PROJECT_ID/front-end:$BUILD_ID
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
