@@ -1,11 +1,11 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/front-end:1.0.$BUILD_ID','.']
-  dir: 'gke-rtm-frontend-cicd/'
+  dir: 'gke-rtm-frontend-cicd/static-website/'
   timeout: 180s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/front-end:1.0.$BUILD_ID'] 
-  dir: 'gke-rtm-backend-cicd/'
+  dir: 'gke-rtm-backend-cicd/static-website/'
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - set
