@@ -1,15 +1,22 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  labels:
+    app: front-end
   name: front-end
 spec:
   replicas: 1
   template:
+    metadata:
+      labels:
+        app: front-end
     spec:
       containers:
-      - env:
-        image: gcr.io/$PROJECT_ID/front-end:$BUILD_ID
-        imagePullPolicy: Always
-        name: front-end
+      - name: web
+        image: gcr.io/gke-mindtree-135/front-end:$BUILDID
         ports:
-        - containerPort: 80
+        - containerPort: 8090
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8090
