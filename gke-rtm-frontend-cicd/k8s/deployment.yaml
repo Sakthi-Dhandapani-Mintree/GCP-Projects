@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: gcr.io/gke-mindtree-135/front-end:$BUILDID
+        image: gcr.io/gke-mindtree-135/front-end:$BUILD_ID
         ports:
         - containerPort: 8090
         livenessProbe:
