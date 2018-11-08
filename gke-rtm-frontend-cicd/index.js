@@ -3,6 +3,7 @@ var http = require('http');
 var fs = require('fs');
 //2.
 var server = http.createServer(function (req, resp) {
+    server.use(express.static(__dirname);
     //3.
     if (req.url === "/") {
         fs.readFile("index.html", function (error, pgResp) {
