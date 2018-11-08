@@ -18,5 +18,5 @@ spec:
         - containerPort: 8090
         livenessProbe:
           httpGet:
-            path: /
+            path: /index.html
             port: 8090
