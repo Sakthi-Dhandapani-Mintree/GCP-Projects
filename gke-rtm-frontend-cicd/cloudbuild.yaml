@@ -6,7 +6,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID'] 
   dir: 'gke-rtm-backend-cicd/'
- - name: 'gcr.io/cloud-builders/kubectl'
+- name: 'gcr.io/cloud-builders/kubectl'
   args:
   - set
   - image
