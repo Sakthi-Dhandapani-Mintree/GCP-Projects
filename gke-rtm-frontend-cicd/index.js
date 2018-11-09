@@ -6,7 +6,7 @@ var server = http.createServer(function (req, resp) {
      
    //3.
     if (req.url === "/") {
-        fs.appendFile("index.html","ResourceMapping.js", function (error, pgResp) {
+        fs.readFile("index.html", function (error, pgResp) {
             if (error) {
                 resp.writeHead(404);
                 resp.write('Contents you are looking are Not Found');
