@@ -35,7 +35,7 @@ var server = http.createServer(function (req, resp) {
     } else {
         //4.
         resp.writeHead(200, { 'Content-Type': 'text/html' });
-        resp.write('<h1>Product Manaager</h1><br /><br />To create product please enter: ' + req.url);
+        resp.write(req.url);
         resp.end();
     }
 });
