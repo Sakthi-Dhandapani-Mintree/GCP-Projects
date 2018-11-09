@@ -3,12 +3,12 @@ var http = require('http');
 var fs = require('fs');
 //2.
 var server = http.createServer(function (req, resp) {
-   console.log(path.join(__dirname));
-   
+     
    //3.
     if (req.url === "/") {
         fs.readFile("index.html", function (error, pgResp) {
             if (error) {
+               console.log(path.join(__dirname));
                 resp.writeHead(404);
                 resp.write('Contents you are looking are Not Found');
             } else {
