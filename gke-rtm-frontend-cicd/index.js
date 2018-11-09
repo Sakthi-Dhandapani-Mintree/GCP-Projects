@@ -3,12 +3,12 @@ var http = require('http');
 var fs = require('fs');
 //2.
 var server = http.createServer(function (req, resp) {
-     fs.readFile('ResourceMapping.js', 'utf8', function(err, contents) {
-    console.log("***************"+contents);
-     });
-   //3.
+     //3.
     if (req.url === "/") {
         fs.readFile("index.html", function (error, pgResp) {
+             fs.readFile('ResourceMapping.js', 'utf8', function(err, contents) {
+    console.log("File reading successfully");
+     });
             if (error) {
                 resp.writeHead(404);
                 resp.write('Contents you are looking are Not Found');
