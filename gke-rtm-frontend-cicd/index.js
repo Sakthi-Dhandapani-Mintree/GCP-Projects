@@ -8,7 +8,6 @@ var server = http.createServer(function (req, resp) {
     if (req.url === "/") {
         fs.readdir("index.html", function (error, pgResp) {
             if (error) {
-               console.log(path.join(__dirname));
                 resp.writeHead(404);
                 resp.write('Contents you are looking are Not Found');
             } else {
