@@ -1,21 +1,27 @@
-
-
-var express = require('express');
-var path = require('path');
-var app = express();
-app.use(express.static(__dirname + 'client'));
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client/index.html'));
-});
-
-app.get('/client/client.js', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client.js'));
-});
-
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client/index.html'));
+var http = require('http');
+var fs = require('fs');
+var server = http.createServer(function (req, resp) {
+    if (req.url === "/") {
+        fs.readFile("index.html", function (error, pgResp) {
+           if (error) {
+                resp.writeHead(404);
+                resp.write('Contents you are looking are Not Found');
+            } else {
+                resp.writeHead(200, { 'Content-Type': 'text/html' });
+                resp.write(pgResp);
+            }
+             
+            resp.end();
+        });
+    } else {
+        //4.
+        resp.writeHead(200, { 'Content-Type': 'text/html' });
+        resp.write(req.url);
+        resp.end();
+    }
+    
 });
 //5.
-app.listen(8090);
+server.listen(8090);
  
 console.log('Server Started listening on 8090');
