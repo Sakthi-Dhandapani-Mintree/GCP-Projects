@@ -4,7 +4,7 @@
   "description": "Resource Technology Mapping ",
   "main": "ResourceMapping.js",
   "scripts": {
-    "start": "ResourceMapping.js",
+    "start": "node ResourceMapping.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
