@@ -16,6 +16,6 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/client/index.html'));
 });
 //5.
-server.listen(8090);
+app.listen(8090);
  
 console.log('Server Started listening on 8090');
