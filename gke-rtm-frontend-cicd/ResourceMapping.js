@@ -14,7 +14,7 @@ function validateForm() {
 		$.ajax({
 			type : "POST",
 			contentType : 'application/json; charset=utf-8',
-			url : "https://backend-dot-resourcemapping-135.appspot.com"+"/addResource",
+			url : "http://35.193.117.24/resourcetechnologymapping"+"/addResource",
 			data : JSON.stringify(resource),
 			dataType : 'json',
 			success : function(result) {
@@ -184,7 +184,7 @@ function getDetails(){
 	var idorName = document.forms["form2"]["midName"].value;
 	$.ajax({
 		type : "GET",
-		url :   "https://backend-dot-resourcemapping-135.appspot.com"+"/getResource/"+idorName,
+		url :   "http://35.193.117.24/resourcetechnologymapping"+"/getResource/"+idorName,
 		 dataType: 'json',
 		success : function(result) {
 			if(isNullOrEmpty(result)){
