@@ -1,6 +1,6 @@
 var http = require('http');
 var fs = require('fs');
-var dt = require('./demo_module.js');
+var dt = require('./ResourceMapping.js');
 var server = http.createServer(function (req, resp) {
     if (req.url === "/") {
         fs.readFile("index.html", function (error, pgResp) {
@@ -9,8 +9,6 @@ var server = http.createServer(function (req, resp) {
                 resp.write('Contents you are looking are Not Found');
             } else {
                 resp.writeHead(200, { 'Content-Type': 'text/html' });
-                resp.write("The date and time are currently: " + dt.myDateTime());
-                resp.write(dt.myDateTime());
                 resp.write(pgResp);
             }
              
