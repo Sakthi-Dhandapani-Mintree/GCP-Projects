@@ -29,7 +29,7 @@
 		$.ajax({
 			type : "POST",
 			contentType : 'application/json; charset=utf-8',
-			url : "http://35.238.148.63/resourcetechnologymapping"+"/addResource",
+			url : "http://104.197.142.185/resourcetechnologymapping"+"/addResource",
 			data : JSON.stringify(resource),
 			dataType : 'json',
 			success : function(result) {
@@ -199,7 +199,7 @@ function getDetails(){
 	var idorName = document.forms["form2"]["midName"].value;
 	$.ajax({
 		type : "GET",
-		url :   "http://35.238.148.63/resourcetechnologymapping"+"/getResource/"+idorName,
+		url :   "http://104.197.142.185/resourcetechnologymapping"+"/getResource/"+idorName,
 		 dataType: 'json',
 		success : function(result) {
 			if(isNullOrEmpty(result)){
