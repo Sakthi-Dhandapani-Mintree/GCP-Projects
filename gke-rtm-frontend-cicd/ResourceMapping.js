@@ -14,7 +14,7 @@ function validateForm() {
 		$.ajax({
 			type : "POST",
 			contentType : 'application/json; charset=utf-8',
-			url : "http://35.193.117.24/resourcetechnologymapping"+"/addResource",
+			url : "http://35.226.170.41/resourcetechnologymapping"+"/addResource",
 			data : JSON.stringify(resource),
 			dataType : 'json',
 			success : function(result) {
@@ -184,7 +184,7 @@ function getDetails(){
 	var idorName = document.forms["form2"]["midName"].value;
 	$.ajax({
 		type : "GET",
-		url :   "http://35.193.117.24/resourcetechnologymapping"+"/getResource/"+idorName,
+		url :   "http://35.226.170.41/resourcetechnologymapping"+"/getResource/"+idorName,
 		 dataType: 'json',
 		success : function(result) {
 			if(isNullOrEmpty(result)){
