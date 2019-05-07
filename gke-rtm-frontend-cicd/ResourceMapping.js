@@ -184,7 +184,7 @@ function getDetails(){
 	var idorName = document.forms["form2"]["midName"].value;
 	$.ajax({
 		type : "GET",
-		url :   "http://35.226.170.41/resourcetechnologymapping"+"/getResource/"+idorName,
+		url :   "http://35.225.239.101/resourcetechnologymapping"+"/getResource/"+idorName,
 		 dataType: 'json',
 		success : function(result) {
 			if(isNullOrEmpty(result)){
