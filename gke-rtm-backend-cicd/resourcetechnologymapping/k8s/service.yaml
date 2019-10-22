@@ -1,14 +1,16 @@
-kind: Service
-apiVersion: v1
+apiVersion: "v1"
+kind: "Service"
 metadata:
-  name: back-end
+  name: "back-end-service"
+  namespace: "default"
+  labels:
+    app: "back-end"
 spec:
-  selector:
-    app: back-end
-    tier: backend
-  type: LoadBalancer
   ports:
-  - protocol: TCP
-    nodePort: 32131
+  - protocol: "TCP"
     port: 80
     targetPort: 8080
+  selector:
+    app: "back-end"
+  type: "LoadBalancer"
+  loadBalancerIP: ""
