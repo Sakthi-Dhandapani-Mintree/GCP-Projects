@@ -34,7 +34,7 @@ public class ResourceBeanController {
 	 */
 	@RequestMapping(value = "/hellokube", method = RequestMethod.GET)
 	public String hello() {
-		System.out.println("Hello My method is called");
+		System.out.println("Hello My method is called-Code checked in CI/CD done");
 		return "My hello Method called";
 	}
 	
