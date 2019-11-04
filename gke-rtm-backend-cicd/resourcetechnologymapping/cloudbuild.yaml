@@ -23,7 +23,7 @@ steps:
   args:
   - set
   - image
-  - deployment
+  - deployment/
   - back-end
   - web=gcr.io/$PROJECT_ID/back-end:1.0.$BUILD_ID
   env:
