@@ -4,7 +4,7 @@ metadata:
   labels:
     app: back-end
   name: back-end
-  namespace: logging
+  #namespace: logging
 spec:
   replicas: 1
   template:
