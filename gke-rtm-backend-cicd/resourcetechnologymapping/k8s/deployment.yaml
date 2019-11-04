@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: back-end
-  namespace: logging
+  #namespace: logging
   labels:
     app: back-end
   
