@@ -10,7 +10,7 @@ public class TestMessageBuilder {
     public void testammc() {
 
         MessageBuilder obj = new MessageBuilder();
-        assertEquals("Hello ", obj.getMessage("Hello"));
+        assertEquals("Hello", obj.getMessage("Hello"));
 
     }
 
