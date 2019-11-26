@@ -3,11 +3,11 @@ package com.aamc.examples;
 public class MessageBuilder {
 
     public String getMessage(String name) {
-
-        StringBuilder result = new StringBuilder();
+        return "Hello";
+       /** StringBuilder result = new StringBuilder();
 
         if (name == null || name.trim().length() == 0) {
-               return "provide some name";
+             throw new RuntimeException()
            // result.append("Please provide a name!");
 
         } else {
@@ -16,6 +16,6 @@ public class MessageBuilder {
 
         }
         return result.toString();
-    }
+    }*/
 
 }
