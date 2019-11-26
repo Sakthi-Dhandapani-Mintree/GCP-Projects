@@ -15,7 +15,7 @@ public class MessageBuilder {
             result.append("Hello " + name);
 
         }
-        return result.toString();
-    }*/
+        return result.toString();*/
+    }
 
 }
