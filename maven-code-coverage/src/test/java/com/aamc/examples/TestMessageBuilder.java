@@ -10,7 +10,7 @@ public class TestMessageBuilder {
     public void testNameMkyong() {
 
         MessageBuilder obj = new MessageBuilder();
-        assertEquals("Hello Sakthi Dhandapani", obj.getMessage("Sakthi"));
+        assertEquals("Hello Sakthi Dhandapani", obj.getMessage("Sakthi Dhandapani"));
 
     }
 
