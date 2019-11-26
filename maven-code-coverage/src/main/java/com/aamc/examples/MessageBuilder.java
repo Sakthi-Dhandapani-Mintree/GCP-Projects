@@ -7,8 +7,8 @@ public class MessageBuilder {
         StringBuilder result = new StringBuilder();
 
         if (name == null || name.trim().length() == 0) {
-
-            result.append("Please provide a name!");
+            return "Provide name";
+            //result.append("Please provide a name!");
 
         } else {
 
