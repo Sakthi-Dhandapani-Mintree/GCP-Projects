@@ -7,10 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestMessageBuilder {
 
     @Test
-    public void testNameMkyong() {
+    public void testammc() {
 
         MessageBuilder obj = new MessageBuilder();
-        assertEquals("Hello Sakthi Dhandapani", obj.getMessage("Sakthi Dhandapani"));
+        assertEquals("Hello ", obj.getMessage("hello"));
 
     }
 
