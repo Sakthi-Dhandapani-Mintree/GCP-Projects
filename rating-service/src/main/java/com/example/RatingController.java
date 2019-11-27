@@ -2,7 +2,7 @@ package com.example;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
@@ -18,7 +18,7 @@ public class RatingController {
     public String action() {
         return "------------------------>Rating Action <----------------------------";
     }
-     @GetMapping(value = "/getmessage/{name}")
+    /** @GetMapping(value = "/getmessage/{name}")
     public String getMessage(@PathVariable("name") String name) {
 
         StringBuilder result = new StringBuilder();
@@ -33,5 +33,5 @@ public class RatingController {
 
         }
         return result.toString();
-    }
+    }*/
 }
