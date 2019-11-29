@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 	@RequestMapping(value = "/hi")
 	public String hi() {
-		System.out.println("Welcome Student Controller");
+		//System.out.println("Welcome Student Controller");
 		return "Hi Student";
 	}
 
